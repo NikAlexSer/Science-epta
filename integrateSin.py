@@ -53,6 +53,10 @@ def trapezian(a, b, n):
     return result
 
 
+def trap2(a, b, n):
+    return (leftAngles(a, b, n) + rightAngles(a, b, n))/2
+
+
 def tailor(a, b, n):
     resultA = 0.0
     resultB = 0.0
@@ -61,7 +65,7 @@ def tailor(a, b, n):
     # m =
     A = (b-a)/2
     while i <= n:
-        result += (sin(A + i*pi/2) / factorial(i)) * pow((x - A), i)
+        result += (pow((-A + x), i) * sin(A + pi*i/2))/factorial(i)
         i += 1
     i = 0
     while i <= n:
@@ -99,13 +103,17 @@ pprint('Левые прямоуголбники %.8f' % res)
 res = rightAngles(lowInter, highInter, n)
 pprint('Правые прямоугольбники %.8f' % res)
 
-res = trapezian(lowInter, highInter, n)
+res = trap2(lowInter, highInter, n)
 pprint('Метод трапеций %.8f' % res)
 
 res = integrate(tailor(lowInter, highInter, n), (x, lowInter, highInter))
-pprint(tailor(lowInter, highInter, n))
-print(tailor(lowInter, highInter, n))
+pprint('Ряд тейлора %.8f' % res)
 pprint('\n')
 pprint('\n')
 pprint('\n')
-pprint(res)
+#pprint(tailor(lowInter, highInter, n))
+#print(tailor(lowInter, highInter, n))
+#pprint('\n')
+#pprint('\n')
+#pprint('\n')
+#pprint('Ряд тейлора %.8f' % res)
