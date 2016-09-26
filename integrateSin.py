@@ -58,8 +58,8 @@ def trap2(a, b, n):
 
 
 def tailor(a, b, n):
-    resultA = 0.0
-    resultB = 0.0
+    #resultA = 0.0
+    #resultB = 0.0
     result = 0.0
     i = 0
     # m =
@@ -68,9 +68,9 @@ def tailor(a, b, n):
         result += (pow((-A + x), i) * sin(A + pi*i/2))/factorial(i)
         i += 1
     i = 0
-    while i <= n:
-        resultB += (pow(sin(A), i) / factorial(i)) * pow((b - A), i)
-        i += 1
+    #while i <= n:
+    #    resultB += (pow(sin(A), i) / factorial(i)) * pow((b - A), i)
+    #    i += 1
     #pprint(resultA)
     #pprint(resultB)
     #result += resultB - resultA
