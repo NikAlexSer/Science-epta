@@ -94,6 +94,7 @@ lowInter = float(input())      # нижняя граница
 pprint('Введите верхнюю границу')
 highInter = float(input())  # верхняя граница
 
+pprint('Эталонный интеграл %.8f' % (integrate(sin(x), (x, lowInter, highInter))))
 res = middleAngles(lowInter, highInter, n)
 pprint('Средние прямоугольники: %.8f' % res)
 
