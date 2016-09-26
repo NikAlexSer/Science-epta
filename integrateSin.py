@@ -76,8 +76,6 @@ def tailor(a, b, n):
     #result += resultB - resultA
     return result
 
-y = Symbol('y')
-z = Symbol('z')
 x = Symbol('x')
 f = Function('f')
 g = sin(x)
@@ -94,21 +92,29 @@ lowInter = float(input())      # нижняя граница
 pprint('Введите верхнюю границу')
 highInter = float(input())  # верхняя граница
 
-pprint('Эталонный интеграл %.8f' % (integrate(sin(x), (x, lowInter, highInter))))
+
+Z = integrate(sin(x), (x, lowInter, highInter))
+pprint('Эталонный интеграл %.8f' % (Z))
+pprint('\n')
 res = middleAngles(lowInter, highInter, n)
 pprint('Средние прямоугольники: %.8f' % res)
-
+pprint('Разница %.8f' % (Z - res))
+pprint('\n')
 res = leftAngles(lowInter, highInter, n)
 pprint('Левые прямоуголбники %.8f' % res)
-
+pprint('Разница %.8f' % (Z - res))
+pprint('\n')
 res = rightAngles(lowInter, highInter, n)
 pprint('Правые прямоугольбники %.8f' % res)
-
+pprint('Разница %.8f' % (Z - res))
+pprint('\n')
 res = trap2(lowInter, highInter, n)
 pprint('Метод трапеций %.8f' % res)
-
+pprint('Разница %.8f' % (Z - res))
+pprint('\n')
 res = integrate(tailor(lowInter, highInter, n), (x, lowInter, highInter))
 pprint('Ряд тейлора %.8f' % res)
+pprint('Разница %.8f' % (Z - res))
 pprint('\n')
 pprint('\n')
 pprint('\n')
