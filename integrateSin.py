@@ -1,6 +1,6 @@
 import math
 import random as random_number
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from numpy import array
 from sympy import *
 
@@ -61,12 +61,15 @@ def tailor(a, b, n):
     #resultA = 0.0
     #resultB = 0.0
     result = 0.0
-    i = 0
-    # m =
-    A = (b-a)/2
-    while i <= n:
-        result += (pow((-A + x), i) * sin(A + pi*i/2))/factorial(i)
-        i += 1
+    i = 1.0
+    A = (a+b)/2.0
+    while (i <= 10.0):
+        result += (pow((-A + x), i) * sin(A + (((pi) * float(i))/2.0)))/(factorial(i))
+        i += 1.0
+    pprint(result)
+    print(sin(A + 0.5 * i))
+    print(sin(A))
+    result += sin(A)
     i = 0
     #while i <= n:
     #    resultB += (pow(sin(A), i) / factorial(i)) * pow((b - A), i)
@@ -114,7 +117,7 @@ pprint('Разница %.8f' % (Z - res))
 pprint('\n')
 res = integrate(tailor(lowInter, highInter, n), (x, lowInter, highInter))
 pprint('Ряд тейлора %.8f' % res)
-pprint('Разница %.8f' % (Z - res))
+pprint('Разница %.16f' % (Z - res))
 pprint('\n')
 pprint('\n')
 pprint('\n')
